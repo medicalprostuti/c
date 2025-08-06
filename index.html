@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter Dropdown Menu</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap"
+    />
+    <style>
+      body {
+        font-family: "Hind Siliguri", sans-serif;
+        background-color: #f4f7f6;
+        display: flex;
+        justify-content: center;
+        padding-top: 50px;
+        color: #333;
+      }
+
+      .subject-container {
+        width: 90%;
+        max-width: 600px; /* Increased width slightly */
+        background: #ffffff;
+        padding: 25px 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+        color: #2c3e50;
+        margin-bottom: 25px;
+      }
+
+      /* --- Dropdown Styling --- */
+      .dropdown {
+        position: relative;
+        margin-bottom: 12px;
+      }
+
+      .dropdown-btn {
+        background: #1b0b58;
+        color: white;
+        padding: 15px 20px;
+        font-size: 16px;
+        font-weight: 500;
+        border: none;
+        cursor: pointer;
+        border-radius: 10px;
+        width: 100%;
+        text-align: left;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+      }
+
+      .dropdown-btn:hover {
+        background-color: #2a1a7a;
+      }
+
+      .dropdown-btn:active {
+        transform: scale(0.99); /* Slight press effect */
+      }
+
+      /* Arrow Icon using a pseudo-element */
+      .dropdown-btn::after {
+        content: "▶";
+        font-size: 12px;
+        transform: rotate(0deg);
+        transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Bouncy effect */
+      }
+
+      /* Rotate arrow when dropdown is active/open */
+      .dropdown-btn.active::after {
+        transform: rotate(90deg);
+      }
+
+      /* --- Dropdown Content & Animation --- */
+      .dropdown-content {
+        background-color: #f9f9f9;
+        /* Hide content by default */
+        max-height: 0;
+        overflow: hidden;
+        margin-top: 5px;
+        border-radius: 10px;
+        box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.05);
+        /* Smooth transition for the slide-down effect */
+        transition: max-height 0.8s ease-in-out; /* Slightly slower for longer lists */
+      }
+
+      /* Class added by JavaScript to show the content */
+      .dropdown-content.show {
+        /* Increased max-height to accommodate 60+ topics.
+       This value should be larger than the height of your longest topic list. */
+        max-height: 2000px;
+      }
+
+      /* Links inside the dropdown */
+      .dropdown-content a {
+        color: #555;
+        padding: 14px 25px;
+        text-decoration: none;
+        display: block;
+        transition: background-color 0.2s ease, padding-left 0.2s ease;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .dropdown-content a:last-child {
+        border-bottom: none;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #e9ecef;
+        padding-left: 30px;
+        color: #2980b9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="subject-container" id="subject-menu">
+      <h1>কেমিস্ট্রি ১ম📖</h1>
+      <!-- The dropdown menu will be dynamically generated here -->
+    </div>
+
+    <script>
+      const chaptersData = [
+        {
+          id: "ch1",
+          title: "অধ্যায়-১: ল্যাবরেটরির নিরাপদ",
+          topics: [
+            {
+              title:
+                "১.১ - ল্যাবরেটরিতে ব্যবহৃত গ্লাস সামগ্রী ও এদের পরিষ্কার কৌশল",
+              url: "https://medicalprostuti.github.io/c1/",
+            },
+            {
+              title: "১.২ - রাসায়নিক নিক্তি বা ব্যালেন্স",
+              url: "https://medicalprostuti.github.io/c2/",
+            },
+            {
+              title: "১.৩ - দ্রবন প্রস্তুতি ও এর ঘনমাত্রা নির্নয়",
+              url: "https://medicalprostuti.github.io/c3/",
+            },
+            {
+              title: "১.৪ -আয়তনিক বিশ্লেষণে ব্যবহৃত কাচের যন্ত্রপাতি",
+              url: "https://medicalprostuti.github.io/c4/",
+            },
+            {
+              title:
+                "১.৫ - ল্যাবরেটরিতে ব্যবহৃত বিভিন্ন যন্ত্রপাতিকে তাপ দেওয়ার কৌশল",
+              url: "https://medicalprostuti.github.io/c5/",
+            },
+            {
+              title: "১.৬ - রাসায়নিক দ্রব্য সংরক্ষণ ও ব্যবহারের সতর্কতা",
+              url: "https://medicalprostuti.github.io/c6/",
+            },
+            {
+              title: "১.৭ - সেমিমাইক্রো ও মাইক্রো এনালিটিক্যাল পদ্ধতি",
+              url: "https://medicalprostuti.github.io/c7/",
+            },
+            {
+              title: "১.৮ - ল্যাবরেটরির নিরাপত্তা সামগ্রী ও এর ব্যবহারবিধি",
+              url: "https://medicalprostuti.github.io/c8/",
+            },
+            {
+              title: "১.৯ - ফার্স্ট এইড বক্স",
+              url: "https://medicalprostuti.github.io/c9/",
+            },
+            {
+              title: "১.১০ - গানিতিক সমস্যা",
+              url: "https://medicalprostuti.github.io/c10/",
+            },
+          ],
+        },
+        {
+          id: "ch2",
+          title: "অধ্যায়-২: গুনগত রসায়ন",
+          topics: [
+            {
+              title: "২.১ - পরমানু মডেল ও প্রাথমিক ধারণা",
+              url: "https://medicalprostuti.github.io/c11/",
+            },
+            {
+              title: "২.২ - কোয়ান্টাম সংখ্যা",
+              url: "https://medicalprostuti.github.io/c12/",
+            },
+            {
+              title: "২.৩ - পরমানু ও পরমানুর মূল কনিকাসমূহ",
+              url: "https://medicalprostuti.github.io/c13/",
+            },
+            {
+              title: "২.৪ -পরমানু সংখ্যা ও পারমানিক ভর",
+              url: "https://medicalprostuti.github.io/c14/",
+            },
+            {
+              title: "২.৫ - মৌলের তেজষ্ক্রীয়তা ও তেজষ্ক্রীয় আইসোটপ",
+              url: "https://medicalprostuti.github.io/c15/",
+            },
+            {
+              title: "২.৬ - ইলেকট্রন বিন্যাস",
+              url: "https://medicalprostuti.github.io/c16/",
+            },
+            {
+              title: "২.৭ - তড়িৎ চুম্বকীয় বর্নালি",
+              url: "https://medicalprostuti.github.io/c17/",
+            },
+            {
+              title: "২.৮ - রোগ নির্নয়ে MRI",
+              url: "https://medicalprostuti.github.io/c18/",
+            },
+            {
+              title: "২.৯ - দ্রাব্যতা ও দ্রাব্যতার গুনফল নির্নয়",
+              url: "https://medicalprostuti.github.io/c19/",
+            },
+            {
+              title: "২.১০ - গুনগত বিশ্লেষণে সাধারণ ল্যাবরেটরির পদ্ধতিসমূহ",
+              url: "https://medicalprostuti.github.io/c20/",
+            },
+            {
+              title: "২.১১ - ধাতব আয়ন শনাক্তকরণ",
+              url: "https://medicalprostuti.github.io/c21/",
+            },
+            {
+              title: "২.১২ - দ্রবনের আয়ন শনাক্তকরণ",
+              url: "https://medicalprostuti.github.io/c22/",
+            },
+            {
+              title: "২.১৩ - ক্রোমাটোগ্রাফি",
+              url: "https://medicalprostuti.github.io/c23/",
+            },
+          ],
+        },
+        {
+          id: "ch3",
+          title: "অধ্যায়-৩: মৌলের পর্যায়বৃত্ত ধর্ম",
+          topics: [
+            {
+              title: "৩.১ - ইলেকট্রন বিন্যাসের ভিত্তিতে মৌলের শ্রেণী বিন্যাস",
+              url: "https://medicalprostuti.github.io/c24/",
+            },
+            {
+              title: "৩.২ - S-ব্লক মৌলসমূহ",
+              url: "https://medicalprostuti.github.io/c25/",
+            },
+            {
+              title: "৩.৩ - P-ব্লক মৌল সমূহ",
+              url: "https://medicalprostuti.github.io/c26/",
+            },
+            {
+              title: "৩.৪ - d ব্লক মৌলসমূহ",
+              url: "https://medicalprostuti.github.io/c27/",
+            },
+            {
+              title: "৩.৫ -f-ব্লক মৌলসমূহ",
+              url: "https://medicalprostuti.github.io/c28/",
+            },
+            {
+              title: "৩.৬ - মৌলের পর্যায়বৃত্ত ধর্মসমূহ",
+              url: "https://medicalprostuti.github.io/c29/",
+            },
+            {
+              title: "৩.৭ - রাসায়নিক বন্ধন",
+              url: "https://medicalprostuti.github.io/c30/",
+            },
+            {
+              title: "৩.৮ - ভ্যান্ডার ওয়ালস বলঃ আন্তঃআনবিক আকর্ষণ বল",
+              url: "https://medicalprostuti.github.io/c31/",
+            },
+            {
+              title: "৩.৯ - অরবিটাল সংকরণ বা হাইব্রিডাইজেশন",
+              url: "https://medicalprostuti.github.io/c32/",
+            },
+            {
+              title:
+                "৩.১০ - সমযোজী বন্ধনের পোলারিটি ও আয়নিক যৌগের সমযোজী বৈশিষ্ট্য",
+              url: "https://medicalprostuti.github.io/c33/",
+            },
+            {
+              title: "৩.১১ -  অজৈব যৌগের নামকরণ",
+              url: "https://medicalprostuti.github.io/c34/",
+            },
+          ],
+        },
+        {
+          id: "ch4",
+          title: "অধ্যায়-৪: রাসায়নিক পরিবর্তন",
+          topics: [
+            {
+              title: "৪.১ - রাসায়নিক বিক্রিয়া ও গ্রিন কেমিস্ট্রি",
+              url: "https://medicalprostuti.github.io/c35/",
+            },
+            {
+              title: "৪.২ - একমূখী ও উভমূখী বিক্রিয়া",
+              url: "https://medicalprostuti.github.io/c36/",
+            },
+            {
+              title: "৪.৩ - বিক্রিয়ার হার ও সক্রীয়ন শক্তি",
+              url: "https://medicalprostuti.github.io/c37/",
+            },
+            {
+              title: "৪.৪ -  প্রভাবক ও অনুঘটক",
+              url: "https://medicalprostuti.github.io/c38/",
+            },
+            {
+              title: "৪.৫ -  জৈব প্রভাবক/ এনজাইম",
+              url: "https://medicalprostuti.github.io/c39/",
+            },
+            {
+              title: "৪.৬ - রাসায়নিক সাম্যাবস্থা ও লা শাতেলিয়ার নীতি",
+              url: "https://medicalprostuti.github.io/c40/",
+            },
+            {
+              title: "৪.৭ - ভর ক্রিয়ার সূত্র ও বিক্রিয়ার সাম্যধ্রুবক",
+              url: "https://medicalprostuti.github.io/c41/",
+            },
+            {
+              title: "৪.৮ - পানির আয়নিকরণ গুনফলঃ পানির অটো আয়নিকরণ",
+              url: "https://medicalprostuti.github.io/c42/",
+            },
+            {
+              title: "৪.৯ - এসিড ও ক্ষার",
+              url: "https://medicalprostuti.github.io/c43/",
+            },
+            {
+              title: "৪.১০ - দ্রবণের pH ও বাফার দ্রবণ",
+              url: "https://medicalprostuti.github.io/c44/",
+            },
+            {
+              title: "৪.১১ - বিভিন্ন প্রকার তাপীয় পরিবর্তন ও আপ রাসায়নিক সূত্র",
+              url: "https://medicalprostuti.github.io/c45/",
+            },
+            {
+              title: "৪.১২ - গানিতিক সমস্যা",
+              url: "https://medicalprostuti.github.io/c46/",
+            },
+          ],
+        },
+        {
+          id: "ch5",
+          title: "অধ্যায়-৫: কর্মমূখী রসায়ন",
+          topics: [
+            {
+              title: "৫.১ - খাদ্য নিরাপত্তা ও রসায়ন",
+              url: "https://medicalprostuti.github.io/c47/",
+            },
+            {
+              title: "৫.২ - খাদ্য সংরক্ষণ ও প্রিজারভেটিভস",
+              url: "https://medicalprostuti.github.io/c48/",
+            },
+            {
+              title: "৫.৩ - কৌটাজাতকরণ বা ক্যানিং",
+              url: "https://medicalprostuti.github.io/c49/",
+            },
+            {
+              title: "৫.৪ - সাসপেনশন ও কোয়াগুলেশন",
+              url: "https://medicalprostuti.github.io/c50/",
+            },
+            {
+              title: "৫.৫ - দুধের শতকরা সংযুক্তি ও মাখন",
+              url: "https://medicalprostuti.github.io/c51/",
+            },
+            {
+              title: "৫.৬ - টয়লেট্রিজ ও পারফিউমারি",
+              url: "https://medicalprostuti.github.io/c52/",
+            },
+            {
+              title: "৫.৭ - ভিনেগার",
+              url: "https://medicalprostuti.github.io/c53/",
+            },
+          ],
+        },
+        // Add more chapters as needed
+      ];
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const menuContainer = document.getElementById("subject-menu");
+
+        // --- 1. Function to Generate the Menu ---
+        function generateMenu() {
+          // Loop through each chapter in the data object
+          chaptersData.forEach((chapter) => {
+            // Create the main container for the dropdown
+            const dropdownDiv = document.createElement("div");
+            dropdownDiv.className = "dropdown";
+
+            // Create the button for the chapter
+            const button = document.createElement("button");
+            button.className = "dropdown-btn";
+            button.textContent = chapter.title;
+
+            // Create the container for the topics
+            const contentDiv = document.createElement("div");
+            contentDiv.className = "dropdown-content";
+
+            // Loop through the topics for the current chapter
+            chapter.topics.forEach((topic) => {
+              const link = document.createElement("a");
+              link.textContent = topic.title;
+              link.href = topic.url;
+              contentDiv.appendChild(link);
+            });
+
+            // Assemble the parts
+            dropdownDiv.appendChild(button);
+            dropdownDiv.appendChild(contentDiv);
+
+            // Add the completed dropdown to the main container
+            menuContainer.appendChild(dropdownDiv);
+          });
+        }
+
+        // --- 2. Function to Add Event Listeners ---
+        function attachEventListeners() {
+          const allDropdownBtns =
+            menuContainer.querySelectorAll(".dropdown-btn");
+
+          allDropdownBtns.forEach((btn) => {
+            btn.addEventListener("click", function (event) {
+              const currentContent = this.nextElementSibling;
+              const isAlreadyOpen = this.classList.contains("active");
+
+              // First, close all other dropdowns
+              allDropdownBtns.forEach((otherBtn) => {
+                if (otherBtn !== this) {
+                  // Don't close the one we are interacting with yet
+                  otherBtn.classList.remove("active");
+                  otherBtn.nextElementSibling.classList.remove("show");
+                }
+              });
+
+              // Toggle the clicked dropdown
+              this.classList.toggle("active");
+              currentContent.classList.toggle("show");
+
+              event.stopPropagation();
+            });
+          });
+
+          // Optional: Close dropdowns if clicking outside
+          window.addEventListener("click", function (event) {
+            // Check if the click was outside of any dropdown button
+            if (!event.target.matches(".dropdown-btn")) {
+              allDropdownBtns.forEach((btn) => {
+                btn.classList.remove("active");
+                btn.nextElementSibling.classList.remove("show");
+              });
+            }
+          });
+        }
+
+        // --- 3. Initialize the Menu ---
+        generateMenu();
+        attachEventListeners();
+      });
+    </script>
+  </body>
+</html>
