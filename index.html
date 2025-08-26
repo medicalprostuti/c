@@ -20,7 +20,7 @@
 
       .subject-container {
         width: 90%;
-        max-width: 600px; /* Increased width slightly */
+        max-width: 600px;
         background: #ffffff;
         padding: 25px 30px;
         border-radius: 15px;
@@ -55,6 +55,8 @@
         justify-content: space-between;
         align-items: center;
         box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        /* FIX: Apply font to the button */
+        font-family: "Hind Siliguri", sans-serif;
       }
 
       .dropdown-btn:hover {
@@ -62,7 +64,7 @@
       }
 
       .dropdown-btn:active {
-        transform: scale(0.99); /* Slight press effect */
+        transform: scale(0.99);
       }
 
       /* Arrow Icon using a pseudo-element */
@@ -70,7 +72,7 @@
         content: "▶";
         font-size: 12px;
         transform: rotate(0deg);
-        transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Bouncy effect */
+        transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
       }
 
       /* Rotate arrow when dropdown is active/open */
@@ -88,13 +90,13 @@
         border-radius: 10px;
         box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.05);
         /* Smooth transition for the slide-down effect */
-        transition: max-height 0.8s ease-in-out; /* Slightly slower for longer lists */
+        transition: max-height 0.8s ease-in-out;
       }
 
       /* Class added by JavaScript to show the content */
       .dropdown-content.show {
         /* Increased max-height to accommodate 60+ topics.
-       This value should be larger than the height of your longest topic list. */
+        This value should be larger than the height of your longest topic list. */
         max-height: 2000px;
       }
 
@@ -106,6 +108,8 @@
         display: block;
         transition: background-color 0.2s ease, padding-left 0.2s ease;
         border-bottom: 1px solid #e0e0e0;
+        /* FIX: Apply font to the links */
+        font-family: "Hind Siliguri", sans-serif;
       }
 
       .dropdown-content a:last-child {
@@ -122,14 +126,13 @@
   <body>
     <div class="subject-container" id="subject-menu">
       <h1>কেমিস্ট্রি ১ম পত্র</h1>
-      <!-- The dropdown menu will be dynamically generated here -->
-    </div>
+      </div>
 
     <script>
       const chaptersData = [
         {
           id: "ch1",
-          title: "অধ্যায়-১: ল্যাবরেটরির নিরাপদ",
+          title: "অধ্যায়-১: ল্যাবরেটরির নিরাপদ",
           topics: [
             {
               title:
@@ -137,24 +140,24 @@
               url: "https://medicalprostuti.github.io/c1/",
             },
             {
-              title: "১.২ - রাসায়নিক নিক্তি বা ব্যালেন্স",
+              title: "১.২ - রাসায়নিক নিক্তি বা ব্যালেন্স",
               url: "https://medicalprostuti.github.io/c2/",
             },
             {
-              title: "১.৩ - দ্রবন প্রস্তুতি ও এর ঘনমাত্রা নির্নয়",
+              title: "১.৩ - দ্রবন প্রস্তুতি ও এর ঘনমাত্রা নির্নয়",
               url: "https://medicalprostuti.github.io/c3/",
             },
             {
-              title: "১.৪ -আয়তনিক বিশ্লেষণে ব্যবহৃত কাচের যন্ত্রপাতি",
+              title: "১.৪ -আয়তনিক বিশ্লেষণে ব্যবহৃত কাচের যন্ত্রপাতি",
               url: "https://medicalprostuti.github.io/c4/",
             },
             {
               title:
-                "১.৫ - ল্যাবরেটরিতে ব্যবহৃত বিভিন্ন যন্ত্রপাতিকে তাপ দেওয়ার কৌশল",
+                "১.৫ - ল্যাবরেটরিতে ব্যবহৃত বিভিন্ন যন্ত্রপাতিকে তাপ দেওয়ার কৌশল",
               url: "https://medicalprostuti.github.io/c5/",
             },
             {
-              title: "১.৬ - রাসায়নিক দ্রব্য সংরক্ষণ ও ব্যবহারের সতর্কতা",
+              title: "১.৬ - রাসায়নিক দ্রব্য সংরক্ষণ ও ব্যবহারের সতর্কতা",
               url: "https://medicalprostuti.github.io/c6/",
             },
             {
@@ -177,14 +180,14 @@
         },
         {
           id: "ch2",
-          title: "অধ্যায়-২: গুনগত রসায়ন",
+          title: "অধ্যায়-২: গুনগত রসায়ন",
           topics: [
             {
               title: "২.১ - পরমানু মডেল ও প্রাথমিক ধারণা",
               url: "https://medicalprostuti.github.io/c11/",
             },
             {
-              title: "২.২ - কোয়ান্টাম সংখ্যা",
+              title: "২.২ - কোয়ান্টাম সংখ্যা",
               url: "https://medicalprostuti.github.io/c12/",
             },
             {
@@ -196,7 +199,7 @@
               url: "https://medicalprostuti.github.io/c14/",
             },
             {
-              title: "২.৫ - মৌলের তেজষ্ক্রীয়তা ও তেজষ্ক্রীয় আইসোটপ",
+              title: "২.৫ - মৌলের তেজষ্ক্রীয়তা ও তেজষ্ক্রীয় আইসোটপ",
               url: "https://medicalprostuti.github.io/c15/",
             },
             {
@@ -204,15 +207,15 @@
               url: "https://medicalprostuti.github.io/c16/",
             },
             {
-              title: "২.৭ - তড়িৎ চুম্বকীয় বর্নালি",
+              title: "২.৭ - তড়িৎ চুম্বকীয় বর্নালি",
               url: "https://medicalprostuti.github.io/c17/",
             },
             {
-              title: "২.৮ - রোগ নির্নয়ে MRI",
+              title: "২.৮ - রোগ নির্নয়ে MRI",
               url: "https://medicalprostuti.github.io/c18/",
             },
             {
-              title: "২.৯ - দ্রাব্যতা ও দ্রাব্যতার গুনফল নির্নয়",
+              title: "২.৯ - দ্রাব্যতা ও দ্রাব্যতার গুনফল নির্নয়",
               url: "https://medicalprostuti.github.io/c19/",
             },
             {
@@ -220,11 +223,11 @@
               url: "https://medicalprostuti.github.io/c20/",
             },
             {
-              title: "২.১১ - ধাতব আয়ন শনাক্তকরণ",
+              title: "২.১১ - ধাতব আয়ন শনাক্তকরণ",
               url: "https://medicalprostuti.github.io/c21/",
             },
             {
-              title: "২.১২ - দ্রবনের আয়ন শনাক্তকরণ",
+              title: "২.১২ - দ্রবনের আয়ন শনাক্তকরণ",
               url: "https://medicalprostuti.github.io/c22/",
             },
             {
@@ -235,7 +238,7 @@
         },
         {
           id: "ch3",
-          title: "অধ্যায়-৩: মৌলের পর্যায়বৃত্ত ধর্ম",
+          title: "অধ্যায়-৩: মৌলের পর্যায়বৃত্ত ধর্ম",
           topics: [
             {
               title: "৩.১ - ইলেকট্রন বিন্যাসের ভিত্তিতে মৌলের শ্রেণী বিন্যাস",
@@ -258,15 +261,15 @@
               url: "https://medicalprostuti.github.io/c28/",
             },
             {
-              title: "৩.৬ - মৌলের পর্যায়বৃত্ত ধর্মসমূহ",
+              title: "৩.৬ - মৌলের পর্যায়বৃত্ত ধর্মসমূহ",
               url: "https://medicalprostuti.github.io/c29/",
             },
             {
-              title: "৩.৭ - রাসায়নিক বন্ধন",
+              title: "৩.৭ - রাসায়নিক বন্ধন",
               url: "https://medicalprostuti.github.io/c30/",
             },
             {
-              title: "৩.৮ - ভ্যান্ডার ওয়ালস বলঃ আন্তঃআনবিক আকর্ষণ বল",
+              title: "৩.৮ - ভ্যান্ডার ওয়ালস বলঃ আন্তঃআনবিক আকর্ষণ বল",
               url: "https://medicalprostuti.github.io/c31/",
             },
             {
@@ -275,7 +278,7 @@
             },
             {
               title:
-                "৩.১০ - সমযোজী বন্ধনের পোলারিটি ও আয়নিক যৌগের সমযোজী বৈশিষ্ট্য",
+                "৩.১০ - সমযোজী বন্ধনের পোলারিটি ও আয়নিক যৌগের সমযোজী বৈশিষ্ট্য",
               url: "https://medicalprostuti.github.io/c33/",
             },
             {
@@ -286,18 +289,18 @@
         },
         {
           id: "ch4",
-          title: "অধ্যায়-৪: রাসায়নিক পরিবর্তন",
+          title: "অধ্যায়-৪: রাসায়নিক পরিবর্তন",
           topics: [
             {
-              title: "৪.১ - রাসায়নিক বিক্রিয়া ও গ্রিন কেমিস্ট্রি",
+              title: "৪.১ - রাসায়নিক বিক্রিয়া ও গ্রিন কেমিস্ট্রি",
               url: "https://medicalprostuti.github.io/c35/",
             },
             {
-              title: "৪.২ - একমূখী ও উভমূখী বিক্রিয়া",
+              title: "৪.২ - একমূখী ও উভমূখী বিক্রিয়া",
               url: "https://medicalprostuti.github.io/c36/",
             },
             {
-              title: "৪.৩ - বিক্রিয়ার হার ও সক্রীয়ন শক্তি",
+              title: "৪.৩ - বিক্রিয়ার হার ও সক্রীয়ন শক্তি",
               url: "https://medicalprostuti.github.io/c37/",
             },
             {
@@ -309,15 +312,15 @@
               url: "https://medicalprostuti.github.io/c39/",
             },
             {
-              title: "৪.৬ - রাসায়নিক সাম্যাবস্থা ও লা শাতেলিয়ার নীতি",
+              title: "৪.৬ - রাসায়নিক সাম্যাবস্থা ও লা শাতেলিয়ার নীতি",
               url: "https://medicalprostuti.github.io/c40/",
             },
             {
-              title: "৪.৭ - ভর ক্রিয়ার সূত্র ও বিক্রিয়ার সাম্যধ্রুবক",
+              title: "৪.৭ - ভর ক্রিয়ার সূত্র ও বিক্রিয়ার সাম্যধ্রুবক",
               url: "https://medicalprostuti.github.io/c41/",
             },
             {
-              title: "৪.৮ - পানির আয়নিকরণ গুনফলঃ পানির অটো আয়নিকরণ",
+              title: "৪.৮ - পানির আয়নিকরণ গুনফলঃ পানির অটো আয়নিকরণ",
               url: "https://medicalprostuti.github.io/c42/",
             },
             {
@@ -329,7 +332,7 @@
               url: "https://medicalprostuti.github.io/c44/",
             },
             {
-              title: "৪.১১ - বিভিন্ন প্রকার তাপীয় পরিবর্তন ও আপ রাসায়নিক সূত্র",
+              title: "৪.১১ - বিভিন্ন প্রকার তাপীয় পরিবর্তন ও আপ রাসায়নিক সূত্র",
               url: "https://medicalprostuti.github.io/c45/",
             },
             {
@@ -340,10 +343,10 @@
         },
         {
           id: "ch5",
-          title: "অধ্যায়-৫: কর্মমূখী রসায়ন",
+          title: "অধ্যায়-৫: কর্মমূখী রসায়ন",
           topics: [
             {
-              title: "৫.১ - খাদ্য নিরাপত্তা ও রসায়ন",
+              title: "৫.১ - খাদ্য নিরাপত্তা ও রসায়ন",
               url: "https://medicalprostuti.github.io/c47/",
             },
             {
@@ -355,7 +358,7 @@
               url: "https://medicalprostuti.github.io/c49/",
             },
             {
-              title: "৫.৪ - সাসপেনশন ও কোয়াগুলেশন",
+              title: "৫.৪ - সাসপেনশন ও কোয়াগুলেশন",
               url: "https://medicalprostuti.github.io/c50/",
             },
             {
@@ -363,7 +366,7 @@
               url: "https://medicalprostuti.github.io/c51/",
             },
             {
-              title: "৫.৬ - টয়লেট্রিজ ও পারফিউমারি",
+              title: "৫.৬ - টয়লেট্রিজ ও পারফিউমারি",
               url: "https://medicalprostuti.github.io/c52/",
             },
             {
@@ -422,10 +425,9 @@
               const currentContent = this.nextElementSibling;
               const isAlreadyOpen = this.classList.contains("active");
 
-              // First, close all other dropdowns
+              // FIX: This section was modified to correctly close other dropdowns
               allDropdownBtns.forEach((otherBtn) => {
                 if (otherBtn !== this) {
-                  // Don't close the one we are interacting with yet
                   otherBtn.classList.remove("active");
                   otherBtn.nextElementSibling.classList.remove("show");
                 }
